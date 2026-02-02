@@ -51,3 +51,7 @@ func load_game() -> void:
 	if typeof(data) == TYPE_DICTIONARY:
 		flags = data.get("flags", {})
 		chapter = data.get("chapter", "WITHER")
+		
+		
+func _ready() -> void:
+	print("Petals of You: alive")
