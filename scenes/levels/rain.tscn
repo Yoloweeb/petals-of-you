@@ -1,0 +1,160 @@
+[gd_scene load_steps=10 format=3 uid="uid://dydv5wxicwnas"]
+
+[ext_resource type="Texture2D" uid="uid://c60xmg5otx0qh" path="res://icon.svg" id="1_cwb7f"]
+[ext_resource type="Script" uid="uid://bfhoahnsw3l1f" path="res://scripts/Player.gd" id="2_ed57j"]
+[ext_resource type="Script" uid="uid://i16xks4hcnfk" path="res://scripts/LevelController.gd" id="3_kc55m"]
+[ext_resource type="Script" uid="uid://cnqd60jfp6am8" path="res://scripts/Flower.gd" id="4_sn1hb"]
+[ext_resource type="Script" uid="uid://dkpw4u7iel1n8" path="res://scripts/MoodTrigger.gd" id="5_nq1b3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6py54"]
+size = Vector2(24, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xwxou"]
+radius = 50.69
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjeeu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwxou"]
+
+[node name="LevelRoot" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="bg_sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1024, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/bg_sky"]
+modulate = Color(0.54901963, 0.6392157, 0.6901961, 1)
+scale = Vector2(5, 5)
+texture = ExtResource("1_cwb7f")
+
+[node name="bg_mountains" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1024, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/bg_mountains"]
+modulate = Color(0.36862746, 0.43137255, 0.47843137, 1)
+scale = Vector2(4, 4)
+texture = ExtResource("1_cwb7f")
+
+[node name="fg_ground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1024, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/fg_ground"]
+modulate = Color(0.23529412, 0.2901961, 0.32941177, 1)
+scale = Vector2(3, 3)
+texture = ExtResource("1_cwb7f")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("2_ed57j")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_cwb7f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_6py54")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+
+[node name="Flower" type="Node2D" parent="."]
+position = Vector2(415, 1)
+script = ExtResource("4_sn1hb")
+stages = Array[Texture2D]([ExtResource("1_cwb7f"), ExtResource("1_cwb7f"), ExtResource("1_cwb7f")])
+
+[node name="Sprite2D" type="Sprite2D" parent="Flower"]
+position = Vector2(-3, -7)
+texture = ExtResource("1_cwb7f")
+
+[node name="Area2D" type="Area2D" parent="Flower"]
+position = Vector2(-2, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flower/Area2D"]
+position = Vector2(-2, 2)
+shape = SubResource("CircleShape2D_xwxou")
+
+[node name="MoodTrigger_1" type="Area2D" parent="."]
+position = Vector2(-311, 29)
+script = ExtResource("5_nq1b3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MoodTrigger_1"]
+shape = SubResource("RectangleShape2D_gjeeu")
+
+[node name="OverlayLayer" type="CanvasLayer" parent="."]
+
+[node name="OverlayRoot" type="Control" parent="OverlayLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VignetteOverlay" type="ColorRect" parent="OverlayLayer/OverlayRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.16470589)
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Hint" type="Label" parent="UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -34.0
+offset_right = 212.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Hold [E] to water..."
+
+[node name="ChoicePanel" type="Panel" parent="UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ChoicePanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Prompt" type="Label" parent="UI/ChoicePanel/VBoxContainer"]
+layout_mode = 2
+text = "Prompt"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/ChoicePanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Left" type="Button" parent="UI/ChoicePanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Left"
+
+[node name="Right" type="Button" parent="UI/ChoicePanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Right"
+
+[node name="LevelController" type="Node" parent="."]
+script = ExtResource("3_kc55m")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, 50)
+scale = Vector2(100, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_xwxou")
