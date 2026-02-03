@@ -12,6 +12,7 @@ var prompt: Label
 var left_btn: Button
 var right_btn: Button
 var choice_cb: Callable = func(_b: bool): pass
+var pending_water_player: Node = null
 
 
 func _ready() -> void:
@@ -100,3 +101,42 @@ func _on_left() -> void:
 func _on_right() -> void:
 	choice_panel.visible = false
 	choice_cb.call(false)
+
+
+# =========================
+# Water delivery flow
+# =========================
+
+func process_water_delivery(player: Node) -> void:
+	if pending_water_player:
+		return
+	if not player or not player.get("carrying_water"):
+		return
+	pending_water_player = player
+	show_choice(
+		"Share the last drop of water?",
+		"Share",
+		"Keep",
+		Callable(self, "_on_water_choice")
+	)
+
+func _on_water_choice(shared: bool) -> void:
+	var player := pending_water_player
+	pending_water_player = null
+
+	if player and player.has_method("set_carrying_water"):
+		player.set_carrying_water(false)
+
+	if shared:
+		trigger_mood_shift(true, 1.2)
+		if flower and flower.has_method("bloom_big"):
+			flower.bloom_big()
+	else:
+		trigger_mood_shift(false, 1.2)
+
+	await get_tree().create_timer(0.8).timeout
+	var game := get_tree().root.get_node_or_null("Game")
+	if game and game.has_method("next_chapter"):
+		game.next_chapter()
+	else:
+		push_warning("Game singleton or next_chapter() not found. Implement or adjust LevelController._on_water_choice().")
