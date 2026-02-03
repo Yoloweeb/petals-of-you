@@ -4,6 +4,11 @@ const SPEED := 180.0
 const JUMP_VELOCITY := -320.0
 const GRAVITY := 900.0
 
+var carrying_water := false
+
+func set_carrying_water(v: bool) -> void:
+	carrying_water = v
+
 func _physics_process(delta: float) -> void:
 	# Apply gravity
 	if not is_on_floor():
