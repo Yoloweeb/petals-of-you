@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dp1ak4lqctey1" path="res://art/RTS_Crate.png" id="12_yj3dm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7jcj"]
-size = Vector2(18.825752, 4.6359224)
+size = Vector2(19.39394, 8.635925)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwxou"]
 size = Vector2(21.704506, 17.999)
@@ -570,7 +570,7 @@ size = Vector2(67.5, 321.25)
 position = Vector2(-278, -128)
 scale = Vector2(2.0863934, 1.5200001)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform6"]
+[node name="CollisionShape2Dd" type="CollisionShape2D" parent="Platform6"]
 scale = Vector2(7.28, 1.28)
 shape = SubResource("RectangleShape2D_q7jcj")
 one_way_collision = true
@@ -584,7 +584,7 @@ texture = ExtResource("12_yj3dm")
 position = Vector2(3, -96)
 scale = Vector2(1.9199986, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4"]
+[node name="CollisionShape2Dc" type="CollisionShape2D" parent="Platform4"]
 scale = Vector2(7.28, 1.28)
 shape = SubResource("RectangleShape2D_q7jcj")
 one_way_collision = true
@@ -599,7 +599,7 @@ position = Vector2(-311, 14)
 rotation = 0.5235988
 scale = Vector2(1.8887413, 1.0490153)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3"]
+[node name="CollisionShape2Db" type="CollisionShape2D" parent="Platform3"]
 scale = Vector2(6.6, 4.1199994)
 shape = SubResource("RectangleShape2D_q7jcj")
 
@@ -610,7 +610,7 @@ texture = ExtResource("12_yj3dm")
 [node name="Platform2" type="StaticBody2D" parent="."]
 position = Vector2(728, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+[node name="CollisionShape2Da" type="CollisionShape2D" parent="Platform2"]
 position = Vector2(0.25, 19.099997)
 scale = Vector2(6.6, 4.1199994)
 shape = SubResource("RectangleShape2D_q7jcj")
@@ -624,9 +624,12 @@ texture = ExtResource("12_yj3dm")
 position = Vector2(888, -36)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-position = Vector2(2.125, -2.3179626)
-scale = Vector2(6.6, 1)
+position = Vector2(5.0000005, 43)
+rotation = -1.5707964
+scale = Vector2(4.720001, 15.879995)
 shape = SubResource("RectangleShape2D_q7jcj")
+one_way_collision = true
+one_way_collision_margin = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform"]
 position = Vector2(6, 57.999992)
@@ -643,10 +646,12 @@ scale = Vector2(0.09, 0.17)
 texture = ExtResource("12_yj3dm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(0, 8)
+scale = Vector2(1, 0.6400004)
 shape = SubResource("RectangleShape2D_xwxou")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground"]
-position = Vector2(20.011442, 1.9995003)
+position = Vector2(20.015608, 8)
 shape = SubResource("RectangleShape2D_xwxou")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -692,7 +697,7 @@ scale = Vector2(0.20507813, 0.18164063)
 texture = ExtResource("6_hrx7h")
 
 [node name="Area2D" type="Area2D" parent="Flower"]
-position = Vector2(-2, -5)
+position = Vector2(0, 13)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flower/Area2D"]
 position = Vector2(-2, 2)
