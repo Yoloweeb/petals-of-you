@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Petals of You"
-run/main_scene="uid://dls347rp3xbk5"
+run/main_scene="uid://cti2qw6bihbwd"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
