@@ -9,7 +9,7 @@ signal quit_requested
 
 func _ready() -> void:
 	# Critical: pause menu must work while the tree is paused
-	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
 
 func open() -> void:
