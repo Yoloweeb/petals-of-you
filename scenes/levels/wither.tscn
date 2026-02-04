@@ -566,6 +566,32 @@ size = Vector2(67.5, 321.25)
 
 [node name="LevelRoot" type="Node2D"]
 
+[node name="OverlayLayer" type="CanvasLayer" parent="."]
+
+[node name="OverlayRoot" type="Control" parent="OverlayLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VignetteOverlay" type="ColorRect" parent="OverlayLayer/OverlayRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.453)
+
 [node name="Platform6" type="StaticBody2D" parent="."]
 position = Vector2(-278, -128)
 scale = Vector2(2.0863934, 1.5200001)
@@ -822,26 +848,6 @@ script = ExtResource("5_bx2nu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MoodTrigger_1"]
 shape = SubResource("RectangleShape2D_gjeeu")
 
-[node name="OverlayLayer" type="CanvasLayer" parent="."]
-
-[node name="OverlayRoot" type="Control" parent="OverlayLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="VignetteOverlay" type="ColorRect" parent="OverlayLayer/OverlayRoot"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.453)
-
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 2
 
@@ -905,5 +911,3 @@ script = ExtResource("5_i7adp")
 
 [node name="LevelController" type="Node" parent="."]
 script = ExtResource("3_xwxou")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
