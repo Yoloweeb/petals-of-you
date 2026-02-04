@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwfk38a5yuca2"]
 
-[ext_resource type="Script" uid="uid://bmtv464pownmx" path="res://scenes/levels/fragment.gd" id="1_gc8lx"]
+[ext_resource type="Script" uid="uid://bmtv464pownmx" path="res://scripts/fragment.gd" id="1_gc8lx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hxrqo"]
 
