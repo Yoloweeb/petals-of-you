@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dswm6q0je5bco" path="res://ui/pause_menu.tscn" id="2_d55xy"]
 
 [node name="UIRoot" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_l40t2")
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_d55xy")]
+process_mode = 2

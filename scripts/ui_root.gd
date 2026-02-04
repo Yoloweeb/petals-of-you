@@ -6,6 +6,8 @@ const START_MENU_SCENE := "res://scenes/start_menu.tscn"
 
 var _is_open := false
 
+var _prev_mouse_mode := Input.MOUSE_MODE_VISIBLE
+
 func _ready() -> void:
 	# UIRoot must keep processing during pause so it can unpause
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -31,6 +33,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _open_pause() -> void:
 	_is_open = true
+	_prev_mouse_mode = Input.mouse_mode
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_tree().paused = true
 	pause_menu.open()
 
@@ -38,6 +42,7 @@ func _close_pause() -> void:
 	_is_open = false
 	pause_menu.close()
 	get_tree().paused = false
+	Input.mouse_mode = _prev_mouse_mode
 
 func _is_in_start_menu() -> bool:
 	var current := get_tree().current_scene
