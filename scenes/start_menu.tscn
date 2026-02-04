@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://cti2qw6bihbwd"]
+
+[ext_resource type="Texture2D" uid="uid://d1sm5pxmaxgc8" path="res://art/petals_of_you_title.jpeg" id="1_ouf4f"]
+[ext_resource type="Script" uid="uid://djx5r15op6nyx" path="res://scripts/start_menu.gd" id="1_thu50"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_thu50")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 413.0
+offset_bottom = 311.0
+scale = Vector2(0.88000077, 0.88000035)
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TitleImage" type="TextureRect" parent="CenterContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+texture = ExtResource("1_ouf4f")
+stretch_mode = 5
+
+[node name="Start" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/TitleImage"]
+layout_mode = 0
+offset_left = 613.6358
+offset_top = 455.68164
+offset_right = 663.6358
+offset_bottom = 486.68164
+scale = Vector2(1.2, 1.056)
+theme_override_font_sizes/font_size = 16
+text = "Start"
+
+[node name="Quit" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/TitleImage"]
+layout_mode = 0
+offset_left = 613.6358
+offset_top = 486.36343
+offset_right = 663.6358
+offset_bottom = 517.3634
+scale = Vector2(1.2, 1.056)
+theme_override_font_sizes/font_size = 16
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/TitleImage/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/TitleImage/Quit" to="." method="_on_quit_pressed"]
