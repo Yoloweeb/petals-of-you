@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://kpfdv6u3ra6c"
+path="res://.godot/imported/sfx_gem.ogg-74c008ea5be07dc7b767f4ad648a7ada.oggvorbisstr"
+
+[deps]
+
+source_file="res://art/platformer pack/Sounds/sfx_gem.ogg"
+dest_files=["res://.godot/imported/sfx_gem.ogg-74c008ea5be07dc7b767f4ad648a7ada.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
