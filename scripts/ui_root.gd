@@ -1,14 +1,16 @@
 extends CanvasLayer
 
 const START_MENU_SCENE := "res://scenes/start_menu.tscn"
-
+@onready var hint_label: Label = $HintLabel
 @onready var pause_menu: Control = $PauseMenu
+@onready var hud = $HUD
 
 var _is_open := false
 
 var _prev_mouse_mode := Input.MOUSE_MODE_VISIBLE
 
 func _ready() -> void:
+	
 	# UIRoot must keep processing during pause so it can unpause
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
@@ -19,6 +21,15 @@ func _ready() -> void:
 	pause_menu.quit_requested.connect(_on_quit_requested)
 
 	_close_pause()
+	hud_clear_hint()
+
+func hud_set_hint(text: String) -> void:
+	hint_label.text = text
+	hint_label.visible = true
+
+func hud_clear_hint() -> void:
+	hint_label.text = ""
+	hint_label.visible = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_pause"):
