@@ -1,3 +1,3 @@
 extends Node
 
-var has_bloom_jump: bool = true
+var has_bloom_jump: bool = false
