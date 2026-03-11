@@ -21,6 +21,7 @@ func _physics_process(delta: float) -> void:
 		if is_charging_bloom_jump:
 			is_charging_bloom_jump = false
 			bloom_charge_time = 0.0
+			UiRoot.hud_clear_bloom_jump_charge()
 	else:
 		velocity.y = 0.0  # reset vertical velocity when grounded
 
@@ -39,12 +40,14 @@ func _physics_process(delta: float) -> void:
 
 		if is_charging_bloom_jump and Input.is_action_pressed("bloom_jump"):
 			bloom_charge_time = min(bloom_charge_time + delta, charge_time_max)
+			UiRoot.hud_set_bloom_jump_charge(bloom_charge_time / charge_time_max)
 
 		if Input.is_action_just_released("bloom_jump"):
 			if is_charging_bloom_jump and is_on_floor():
 				var charge_ratio: float = bloom_charge_time / charge_time_max if charge_time_max > 0.0 else 1.0
 				velocity.y = lerp(bloom_jump_velocity_min, bloom_jump_velocity_max, charge_ratio)
 				print("Bloom Jump! charge=", snapped(charge_ratio, 0.01))
+				UiRoot.hud_clear_bloom_jump_charge()
 
 			is_charging_bloom_jump = false
 			bloom_charge_time = 0.0

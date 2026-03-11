@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://dydv5wxicwnas"]
+[gd_scene load_steps=99 format=3 uid="uid://dydv5wxicwnas"]
 
 [ext_resource type="Texture2D" uid="uid://c60xmg5otx0qh" path="res://icon.svg" id="1_cwb7f"]
 [ext_resource type="Texture2D" uid="uid://dp1ak4lqctey1" path="res://art/RTS_Crate.png" id="1_skhg6"]
@@ -20,10 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://pmudmysprwe3" path="res://art/platformer pack/Vector/Tiles/window.svg" id="17_skhg6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5fg2"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7vmt"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_skhg6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xp8nj"]
 
@@ -599,13 +595,8 @@ one_way_collision = true
 texture = ExtResource("14_j7vmt")
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="."]
-position = Vector2(1247.0001, -502.00006)
+position = Vector2(1247.0001, -462)
 scale = Vector2(3.1378486, -1.0348246)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
-visible = false
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_j7vmt")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D7"]
 texture = ExtResource("15_o5fg2")
@@ -690,11 +681,6 @@ texture = ExtResource("14_embpn")
 [node name="StaticBody2D16" type="StaticBody2D" parent="."]
 position = Vector2(-28, -887.00006)
 scale = Vector2(1.6216953, 0.8032838)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D16"]
-visible = false
-scale = Vector2(0.9367491, 0.55467176)
-shape = SubResource("RectangleShape2D_skhg6")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D16"]
 texture = ExtResource("15_o5fg2")

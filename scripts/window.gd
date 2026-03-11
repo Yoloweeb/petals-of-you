@@ -23,10 +23,12 @@ func open_window() -> void:
 	is_opened = true
 	UiRoot.hud_clear_hint()
 
-	# Optional: trigger visual change here
-	UiRoot.hud_set_hint("The window opens. Sunlight shines through.")
+	UiRoot.hud_set_hint("Sunlight pours in.")
+	UiRoot.fade_to_light(1.5)
 
-	print("Rain window opened")
+	await get_tree().create_timer(1.5).timeout
+	UiRoot.hud_set_hint("The flower regains its strength.")
 
 	await get_tree().create_timer(2.0).timeout
-	UiRoot.hud_clear_hint()
+	UiRoot.reset_ui_state()
+	get_tree().change_scene_to_file("res://scenes/levels/bloom.tscn")

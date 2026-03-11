@@ -1,9 +1,12 @@
 extends CanvasLayer
 
 const START_MENU_SCENE := "res://scenes/start_menu.tscn"
+
+@onready var bloom_jump_bar: ProgressBar = $BloomJumpBar
 @onready var hint_label: Label = $HintLabel
 @onready var pause_menu: Control = $PauseMenu
 @onready var hud = $HUD
+@onready var light_fade: ColorRect = $LightFade
 
 var _is_open := false
 
@@ -22,6 +25,32 @@ func _ready() -> void:
 
 	_close_pause()
 	hud_clear_hint()
+	hud_clear_bloom_jump_charge()
+	set_light_fade_alpha(0.0)
+	reset_ui_state()
+
+func reset_ui_state() -> void:
+	hud_clear_hint()
+	hud_clear_bloom_jump_charge()
+	set_light_fade_alpha(0.0)
+
+func set_light_fade_alpha(alpha: float) -> void:
+	var color := light_fade.color
+	color.a = clamp(alpha, 0.0, 1.0)
+	light_fade.color = color
+
+func fade_to_light(duration: float = 1.5) -> void:
+	var tween := create_tween()
+	tween.tween_method(set_light_fade_alpha, light_fade.color.a, 1.0, duration)
+
+func hud_set_bloom_jump_charge(ratio: float) -> void:
+	var clamped_ratio: float = clamp(ratio, 0.0, 1.0)
+	bloom_jump_bar.visible = clamped_ratio > 0.0
+	bloom_jump_bar.value = clamped_ratio * 100.0
+
+func hud_clear_bloom_jump_charge() -> void:
+	bloom_jump_bar.visible = false
+	bloom_jump_bar.value = 0.0
 
 func hud_set_hint(text: String) -> void:
 	hint_label.text = text
