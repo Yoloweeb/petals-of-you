@@ -557,6 +557,7 @@ animations = [{
 [node name="LevelRoot" type="Node2D"]
 
 [node name="OverlayLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="OverlayRoot" type="Control" parent="OverlayLayer"]
 layout_mode = 3
@@ -645,17 +646,6 @@ shape = SubResource("RectangleShape2D_o5fg2")
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D12"]
 texture = ExtResource("14_embpn")
 
-[node name="StaticBody2D13" type="StaticBody2D" parent="."]
-position = Vector2(1106, -714.00006)
-scale = Vector2(1.6216953, 0.8032838)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D13"]
-scale = Vector2(3.187773, 3.2000012)
-shape = SubResource("RectangleShape2D_o5fg2")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D13"]
-texture = ExtResource("14_embpn")
-
 [node name="StaticBody2D14" type="StaticBody2D" parent="."]
 position = Vector2(254, -772.00006)
 scale = Vector2(1.6216953, 0.8032838)
@@ -676,6 +666,61 @@ scale = Vector2(3.187773, 3.2000012)
 shape = SubResource("RectangleShape2D_o5fg2")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D15"]
+texture = ExtResource("14_embpn")
+
+[node name="StaticBody2D19" type="StaticBody2D" parent="."]
+position = Vector2(541, -773.00006)
+scale = Vector2(1.6216953, 0.8032838)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D19"]
+scale = Vector2(3.187773, 3.2000012)
+shape = SubResource("RectangleShape2D_o5fg2")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D19"]
+texture = ExtResource("14_embpn")
+
+[node name="StaticBody2D20" type="StaticBody2D" parent="."]
+position = Vector2(738, -895)
+scale = Vector2(0.8616953, 1.7232838)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D20"]
+scale = Vector2(3.187773, 3.2000012)
+shape = SubResource("RectangleShape2D_o5fg2")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D20"]
+texture = ExtResource("14_embpn")
+
+[node name="StaticBody2D21" type="StaticBody2D" parent="."]
+position = Vector2(863.00006, -895)
+scale = Vector2(1.6216953, 1.7232838)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D21"]
+scale = Vector2(3.187773, 3.2000012)
+shape = SubResource("RectangleShape2D_o5fg2")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D21"]
+texture = ExtResource("14_embpn")
+
+[node name="StaticBody2D22" type="StaticBody2D" parent="."]
+position = Vector2(790, -1089)
+scale = Vector2(3.2616966, 0.9232849)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D22"]
+scale = Vector2(3.187773, 3.2000012)
+shape = SubResource("RectangleShape2D_o5fg2")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D22"]
+texture = ExtResource("14_embpn")
+
+[node name="StaticBody2D23" type="StaticBody2D" parent="."]
+position = Vector2(1016, -979)
+scale = Vector2(1.1016977, 0.9232849)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D23"]
+scale = Vector2(3.187773, 3.2000012)
+shape = SubResource("RectangleShape2D_o5fg2")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D23"]
 texture = ExtResource("14_embpn")
 
 [node name="StaticBody2D16" type="StaticBody2D" parent="."]
@@ -739,6 +784,17 @@ scale = Vector2(3.2187467, 3.2032084)
 shape = SubResource("RectangleShape2D_o5fg2")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4"]
+texture = ExtResource("14_embpn")
+
+[node name="StaticBody2D13" type="StaticBody2D" parent="."]
+position = Vector2(452, -881)
+scale = Vector2(1.2800016, 7.4800005)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D13"]
+scale = Vector2(3.2187467, 3.2032084)
+shape = SubResource("RectangleShape2D_o5fg2")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D13"]
 texture = ExtResource("14_embpn")
 
 [node name="StaticBody2D9" type="StaticBody2D" parent="."]
@@ -868,6 +924,7 @@ autoplay = "default"
 frame_progress = 0.66952324
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
+position = Vector2(-12, -8)
 script = ExtResource("2_ed57j")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
