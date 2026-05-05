@@ -924,7 +924,7 @@ autoplay = "default"
 frame_progress = 0.66952324
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
-position = Vector2(-12, -8)
+position = Vector2(-1, 7)
 script = ExtResource("2_ed57j")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
